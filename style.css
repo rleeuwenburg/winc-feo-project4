@@ -1,7 +1,62 @@
+body {
+  background-color: lightslategrey;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "h h h"
+    "i c c"
+    "i n g"
+    "r l t";
+}
+
+.header {
+  grid-area: h;
+}
+
+.current {
+  grid-area: c;
+}
+.guess {
+  grid-area: g;
+}
+.input {
+  grid-area: n;
+  font-size: 14px;
+}
+.guessed_letters {
+  grid-area: t;
+  font-size: 14px;
+}
+.lives {
+  grid-area: l;
+  font-size: 14px;
+  color: rgb(46, 32, 172);
+}
+
+.restart {
+  grid-area: r;
+}
+
+h1 {
+  color: rgb(46, 32, 172);
+}
+
 .win,
 .lose {
   display: none;
+  transform: rotateZ(30deg), translateY(200px);
 }
+/* 
+als display: none; dan geen animatie: use position: abosolute & visibility: hidden */
 
 .win h2 {
   color: red;
@@ -9,4 +64,33 @@
 
 .lose h2 {
   color: blue;
+}
+
+.image {
+  box-shadow: 5px 5px 15px whitesmoke;
+  grid-area: i;
+  width: 220px;
+  height: 230px;
+}
+
+button {
+  font-size: 14px;
+  width: 90px;
+}
+
+.guess:hover {
+  cursor: pointer;
+  background-color: orange;
+  font-size: 15px;
+  width: 100px;
+  transition: width ease-in-out;
+}
+
+.restart:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  font-size: 15px;
+  width: 100px;
+  transition: width ease-in-out;
 }
